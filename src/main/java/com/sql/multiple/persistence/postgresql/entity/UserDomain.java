@@ -1,0 +1,58 @@
+package com.sql.multiple.persistence.postgresql.entity;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+
+
+import lombok.Builder;
+import lombok.Data;
+
+@Entity
+@Table(name = "USERS_DOMAIN")
+@Data
+@Builder
+public class UserDomain {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(nullable = false)
+	private String firstName;
+	
+	@Column(nullable = false)
+	private String lastName; 
+	
+	@Column(unique = true, nullable = false)
+	private String email;
+	private String phone;
+	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "address_id", nullable = false)
+	private AddressDomain address;
+
+	public UserDomain() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public UserDomain(Long id, String firstName, String lastName, String email, String phone, AddressDomain address) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+	}
+	
+	
+}

@@ -1,0 +1,14 @@
+datasource:
+    sqlUrl: [MySQL url]
+    sqlUsername: [MySQL username]
+    sqlPassword: [MySQL password]
+    postgresUrl: [Postgresql url]
+    postgresUsername: [Postgresql username]
+    postgresPassword: [Postgresql password]
+    showSql: true
+    ddlAuto: update
+    mysqlDialect: org.hibernate.dialect.MySQL8Dialect
+    postgresqlDialect: org.hibernate.dialect.PostgreSQL10Dialect
+
+    
+    
